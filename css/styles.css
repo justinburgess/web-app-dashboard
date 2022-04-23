@@ -346,17 +346,57 @@ template {
 }
 
 header {
-  grid-area: header;
+  grid-area: "header";
 }
 
 nav {
-  grid-area: nav;
+  grid-area: "nav";
 }
 
 main {
-  grid-area: main;
+  grid-area: "main";
+  display: grid;
 }
 
+#traffic-chart {
+  width: 70vw;
+}
+
+.widgets-container-full,
+.widgets-container-half {
+  width: 95vw;
+}
+
+@media (min-width: 768px) {
+  .grid-container {
+    grid-template-columns: 55px 1fr;
+    grid-template-areas: "header header" "navigation main";
+  }
+
+  .main {
+    grid-template-columns: 50%;
+  }
+
+  .traffic, .social {
+    grid-column: 1/span 2;
+  }
+
+  .daily, .members, .message {
+    grid-column: 1/span 1;
+  }
+
+  .mobile, .activity, .settings {
+    grid-column: 2/span 1;
+  }
+
+  .widgets-container-full {
+    width: 90vw;
+  }
+
+  .widgets-container-half {
+    width: 45vw;
+  }
+}
 /*
 * CSS TOGGLE SWITCH
 *
