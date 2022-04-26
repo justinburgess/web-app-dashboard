@@ -309,6 +309,19 @@
     -webkit-appearance: button; /* 1 */
     font: inherit; /* 2 */
   }
+
+  /* Lists
+    ========================================================================== */
+  
+  /**
+   * 1. Remove bullets
+   * 2. Remove indent
+   */
+
+   ul {
+     list-style: none;
+     padding-left: 0;
+   }
   
   /* Interactive
      ========================================================================== */

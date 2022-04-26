@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: 100%;
@@ -21,16 +25,127 @@ main {
     grid-area: 'main';
     display: grid;
 }
+.inner-wrapper {
+    width: 90vw;
+    margin: 0 auto;
+}
+#top,
+#top-left,
+#top-right,
+nav {
+    display: flex;
+    padding: 10px 0;
+}
+#top,
+#top-right,
+#top-left {
+    justify-content: space-evenly;
+}
+#top-left,
+#top-right {
+    width: 50%;
+}
+
+nav {
+    justify-content: space-evenly;
+}
+.main-header {
+    display: flex;
+}
+.headline {
+    display: inline-block;
+    padding: 10px 5vw;
+}
+.tab {
+    display: inline-block;
+    width: 100%;
+}
+
+.traffic-nav {
+    display: flex;
+    justify-content: space-evenly;
+}
 
 #traffic-chart {
     width: 70vw;
 }
+.social-svg {
+    margin: auto;
+}
+.social-image {
+    width: 80px;
+    padding: 15px 20px;
+}
+.social-platform {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px 10px;
+}
+.social-text {
+    padding-left: 1rem;
+}
 
+.members-container,
+.activity-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 .widgets-container-full,
 .widgets-container-half {
     width: 95vw;
 }
 
+.gt {
+    display: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    input,
+    textarea,
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    input {
+        padding: 10px 5px;
+    }
+    textarea {
+        height: 150px;
+        padding: 5px 5px;
+    }
+    button {
+        padding: 10px;
+    }
+}
+
+.switch-light {
+    display: flex;
+    justify-content: space-between;
+    span {
+        display: inline-block;
+    }
+}
+
+.form-field {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.settings-button {
+    display: flex;
+    justify-content: space-around;
+    button {
+        margin-bottom: 20px;
+        padding: 10px;
+        width: 45%;
+    }
+}
 // Media queries
 
 @media (min-width: 768px) {

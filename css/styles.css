@@ -306,6 +306,17 @@ textarea {
   /* 2 */
 }
 
+/* Lists
+  ========================================================================== */
+/**
+ * 1. Remove bullets
+ * 2. Remove indent
+ */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
 /* Interactive
    ========================================================================== */
 /*
@@ -338,65 +349,6 @@ template {
   display: none;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: auto;
-  grid-template-areas: "header" "nav" "main";
-}
-
-header {
-  grid-area: "header";
-}
-
-nav {
-  grid-area: "nav";
-}
-
-main {
-  grid-area: "main";
-  display: grid;
-}
-
-#traffic-chart {
-  width: 70vw;
-}
-
-.widgets-container-full,
-.widgets-container-half {
-  width: 95vw;
-}
-
-@media (min-width: 768px) {
-  .grid-container {
-    grid-template-columns: 55px 1fr;
-    grid-template-areas: "header header" "navigation main";
-  }
-
-  .main {
-    grid-template-columns: 50%;
-  }
-
-  .traffic, .social {
-    grid-column: 1/span 2;
-  }
-
-  .daily, .members, .message {
-    grid-column: 1/span 1;
-  }
-
-  .mobile, .activity, .settings {
-    grid-column: 2/span 1;
-  }
-
-  .widgets-container-full {
-    width: 90vw;
-  }
-
-  .widgets-container-half {
-    width: 45vw;
-  }
-}
 /*
 * CSS TOGGLE SWITCH
 *
@@ -1080,5 +1032,261 @@ main {
   }
 }
 /*# sourceMappingURL=toggle-switch.css.map */
+* {
+  box-sizing: border-box;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+  grid-template-areas: "header" "nav" "main";
+}
+
+header {
+  grid-area: "header";
+}
+
+nav {
+  grid-area: "nav";
+}
+
+main {
+  grid-area: "main";
+  display: grid;
+}
+
+.inner-wrapper {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+#top,
+#top-left,
+#top-right,
+nav {
+  display: flex;
+  padding: 10px 0;
+}
+
+#top,
+#top-right,
+#top-left {
+  justify-content: space-evenly;
+}
+
+#top-left,
+#top-right {
+  width: 50%;
+}
+
+nav {
+  justify-content: space-evenly;
+}
+
+.main-header {
+  display: flex;
+}
+
+.headline {
+  display: inline-block;
+  padding: 10px 5vw;
+}
+
+.tab {
+  display: inline-block;
+  width: 100%;
+}
+
+.traffic-nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#traffic-chart {
+  width: 70vw;
+}
+
+.social-svg {
+  margin: auto;
+}
+
+.social-image {
+  width: 80px;
+  padding: 15px 20px;
+}
+
+.social-platform {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px 10px;
+}
+
+.social-text {
+  padding-left: 1rem;
+}
+
+.members-container,
+.activity-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.widgets-container-full,
+.widgets-container-half {
+  width: 95vw;
+}
+
+.gt {
+  display: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+form input,
+form textarea,
+form button {
+  width: 100%;
+  margin-bottom: 10px;
+}
+form input {
+  padding: 10px 5px;
+}
+form textarea {
+  height: 150px;
+  padding: 5px 5px;
+}
+form button {
+  padding: 10px;
+}
+
+.switch-light {
+  display: flex;
+  justify-content: space-between;
+}
+.switch-light span {
+  display: inline-block;
+}
+
+.form-field {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.settings-button {
+  display: flex;
+  justify-content: space-around;
+}
+.settings-button button {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 45%;
+}
+
+@media (min-width: 768px) {
+  .grid-container {
+    grid-template-columns: 55px 1fr;
+    grid-template-areas: "header header" "navigation main";
+  }
+
+  .main {
+    grid-template-columns: 50%;
+  }
+
+  .traffic, .social {
+    grid-column: 1/span 2;
+  }
+
+  .daily, .members, .message {
+    grid-column: 1/span 1;
+  }
+
+  .mobile, .activity, .settings {
+    grid-column: 2/span 1;
+  }
+
+  .widgets-container-full {
+    width: 90vw;
+  }
+
+  .widgets-container-half {
+    width: 45vw;
+  }
+}
+.nav-icons,
+#bell {
+  width: 30px;
+}
+
+.social-svg {
+  width: 40px;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-size: 15px;
+  text-transform: capitalize;
+}
+
+#student-profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 80px;
+}
+
+#top {
+  background-color: #8590f4;
+  color: white;
+}
+
+nav {
+  background-color: #0e1c9f;
+  opacity: 0.7;
+}
+
+.tab,
+.social-platform,
+.form-field,
+.form-area {
+  background-color: rgb(248, 248, 248);
+}
+
+.social-image,
+.button-primary {
+  background-color: #8590f4;
+}
+
+#top-left {
+  border-right: solid 2px white;
+}
+
+.tab {
+  border-left: solid 2px rgba(65, 63, 63, 0.301);
+  border-bottom: solid 2px rgba(65, 63, 63, 0.301);
+}
+
+.outer-wrapper {
+  border-bottom: solid 2px rgba(65, 63, 63, 0.301);
+}
+
+.social-image {
+  border-radius: 50%;
+}
 
 /*# sourceMappingURL=styles.css.map */

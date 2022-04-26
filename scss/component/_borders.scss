@@ -1,0 +1,13 @@
+#top-left {
+    border-right: solid 2px white;
+}
+.tab {
+    border-left: solid 2px $borderColor;
+    border-bottom: solid 2px $borderColor;
+}
+.outer-wrapper {
+    border-bottom: solid 2px $borderColor;
+}
+.social-image {
+    border-radius: 50%;
+}

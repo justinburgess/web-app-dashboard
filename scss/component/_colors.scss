@@ -1,0 +1,19 @@
+#top {
+    background-color: $primaryColorLight;
+    color: white;
+}
+nav {
+    background-color: $primaryColorDark;
+    opacity: .7;
+}
+.tab,
+.social-platform,
+.form-field,
+.form-area {
+    background-color: $backgroundColor;
+}
+.social-image,
+.button-primary {
+    background-color: $primaryColorLight;
+}
+
