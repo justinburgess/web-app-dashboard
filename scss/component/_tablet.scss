@@ -1,0 +1,49 @@
+// Tablet size screens
+
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: 70px minmax(698px, 1fr);
+        grid-template-areas: 
+        'header header'
+        'nav main'
+        ;
+    }
+    #top-left {
+        flex: 1 0 75%;
+        justify-content: space-between;
+        h1 {
+            padding-left: 5%;
+        }
+        img {
+            margin-right: 3%;
+        }
+    }
+    #top-right {
+        flex: 1 0 25%;
+    }
+    nav {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+    }
+    main {
+        grid-template-columns: repeat(2, minmax(349px, 1fr));
+        row-gap: 40px;
+        .traffic, .social, .main-header {
+            grid-column: 1 / span 2;
+        }
+    
+        .mobile, .activity, .settings {
+            grid-column: 2 / span 1;
+        }
+    
+        .widgets-container-full {
+            max-width: 90vw;
+        }
+    
+        .widgets-container-half {
+            width: 45vw;
+        }
+    }
+}

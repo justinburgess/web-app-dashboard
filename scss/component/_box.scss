@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.outer-wrapper,
+.inner-wrapper {
+    height: 100%;
+}
+
+.inner-wrapper,
+.alert {
+    width: 90%;
+    margin: auto;
+}
+
+#top,
+#top-left,
+#top-right,
+nav {
+    padding: 10px 0;
+}
+
+#top-left,
+#top-right {
+    width: 50%;
+}
+
+.headline {
+    padding: 10px 5vw;
+}
+
+
+// #mobile-chart {
+//     margin-bottom: 40px;
+// }
+// .social-svg {
+//     margin: auto;
+// }
+// .social-image {
+//     width: 80px;
+//     padding: 15px 20px;
+// }
+
+// .social-platform {
+//     margin: 10px 0;
+//     padding: 10px 10px;
+// }
+// .social-text {
+//     padding-left: 1rem;
+//     & p {
+//         margin: 0;
+//     }
+// }
+
+// .widgets-container-full,
+// .widgets-container-half {
+//     width: 95vw;
+// }
+
+// .gt {
+//     display: none;
+// }
+
+// #userField,
+// #messageField,
+// #send {
+// margin-top: 5px;
+// }
+
+// form button,
+// .form-field,
+// .settings-button button {
+//     padding: 10px;
+// }
+
+// form {
+//     input,
+//     textarea,
+//     button {
+//         margin-bottom: 10px;
+//     }
+//     input {
+//         padding: 10px 5px;
+//     }
+//     textarea {
+//         height: 150px;
+//         padding: 5px 5px;
+//     }
+// }
+
+// .switch-light {
+//     margin-top: 20px;
+
+//     strong {
+//         width: calc(100vw - 85px);
+//     }
+// }
+
+// .form-field {
+//     margin: 10px 0;
+//     margin-top: 40px;
+// }
+
+// .settings-button {
+//     button {
+//         margin-bottom: 20px;
+//         width: 45%;
+//     }
+// }

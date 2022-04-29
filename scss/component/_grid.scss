@@ -1,0 +1,40 @@
+.grid {
+    display: grid;
+}
+
+.grid-container {
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    'header'
+    'nav'
+    'main'
+    ;
+    header {
+        grid-area: header;
+    }
+    #grid-nav {
+        grid-area: nav;
+    }
+    main {
+        grid-area: main;
+    }
+}
+
+main {
+    grid-template-columns: minmax(200px, 1fr);
+    gap: 30px;
+    
+    .traffic,
+    .social,
+    .main-header,
+    .daily, 
+    .members, 
+    .message, 
+    .alert, 
+    .mobile, 
+    .activity, 
+    .settings {
+        grid-column: 1 / span 1;
+    } 
+}

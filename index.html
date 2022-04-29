@@ -11,15 +11,15 @@
     <title>Web App</title>
 </head>
 
-<body class="grid-container">
+<body class="grid-container grid">
     <!-- header and profile pic -->
     <header>
-        <section id="top">
-            <div id="top-left">
+        <section class="flex" id="top">
+            <div class="flex" id="top-left">
                 <h1>WebApp&trade;</h1>
                 <img id="bell" src="svgs/bell.svg" alt="notifications">
             </div>
-            <div id="top-right">
+            <div class="flex" id="top-right">
                 <img id="student-profile-pic" src="images/member-1.jpg" alt="user profile picture">
                 <h2>student name</h2>
             </div>
@@ -27,7 +27,7 @@
     </header>
 
     <!-- navigation bar -->
-    <nav id="grid-nav">
+    <nav class="flex" id="grid-nav">
         <a href="#" id="home">
             <img class="nav-icons" src="svgs/home.svg" alt="home icon">
         </a>
@@ -43,10 +43,10 @@
     </nav>
 
     <!-- main content -->
-    <main>
-        <div class="main-header">
+    <main class="grid full-width">
+        <div class="main-header full-width flex">
             <h2 class="headline">dashboard</h2>
-            <div class="tab"></div>
+            <div class="tab full-width"></div>
         </div>
         
         <!-- alert banner -->
@@ -61,7 +61,7 @@
                 <div class="inner-wrapper">
                     <div class="traffic-header">
                         <h3>traffic</h3>
-                        <ul class="traffic-nav">
+                        <ul class="traffic-nav flex">
                             <li class="traffic-nav-link">hourly</li>
                             <li class="traffic-nav-link">daily</li>
                             <li class="traffic-nav-link">weekly</li>
@@ -109,13 +109,13 @@
                 <div class="inner-wrapper">
                     <h3>social stats</h3>
                     <div class="social">
-                        <div class="social-platform">
+                        <div class="social-platform flex">
                             <div class="social-image">
                                 <svg class="social-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white">
                                     <path d="M23.998 12c0-6.628-5.372-12-11.999-12C5.372 0 0 5.372 0 12c0 5.988 4.388 10.952 10.124 11.852v-8.384H7.078v-3.469h3.046V9.356c0-3.008 1.792-4.669 4.532-4.669 1.313 0 2.686.234 2.686.234v2.953H15.83c-1.49 0-1.955.925-1.955 1.874V12h3.328l-.532 3.469h-2.796v8.384c5.736-.9 10.124-5.864 10.124-11.853z"/>
                                 </svg>
                             </div>
-                            <div class="social-text">
+                            <div class="social-text flex">
                                 <p>Facebook</p>
                                 <p>10,320</p>
                             </div>
@@ -152,7 +152,7 @@
             <div class="outer-wrapper">
                 <div class="inner-wrapper">
                     <h3>new members</h3>
-                    <div class="members-container">
+                    <div class="members-container flex">
                         <img class="profile-image" src="images/member-1.jpg" alt="profile picture of Victoria Chambers">
                         <div class="members-text">
                             <p>Victoria Chambers</p>
@@ -160,7 +160,7 @@
                         </div>
                         <p>10/15/20</p>
                     </div>
-                    <div class="members-container">
+                    <div class="members-container flex">
                         <img class="profile-image" src="images/member-2.jpg" alt="profile picture of Dale Byrd">
                         <div class="members-text">
                             <p>Dale Byrd</p>
@@ -168,7 +168,7 @@
                         </div>
                         <p>10/15/20</p>
                     </div>
-                    <div class="members-container">
+                    <div class="members-container flex">
                         <img class="profile-image" src="images/member-3.jpg" alt="profile picture of Dawn Wood">
                         <div class="members-text">
                             <p>Dawn Wood</p>
@@ -176,7 +176,7 @@
                         </div>
                         <p>10/15/20</p>
                     </div>
-                    <div class="members-container">
+                    <div class="members-container flex">
                         <img class="profile-image" src="images/member-4.jpg" alt="profile picture of Dan Oliver">
                         <div class="members-text">
                             <p>Dan Oliver</p>
@@ -193,7 +193,7 @@
             <div class="outer-wrapper">
                 <div class="inner-wrapper">
                     <h3>recent activity</h3>
-                    <div class="activity-container">
+                    <div class="activity-container flex">
                         <img class="profile-image" src="images/member-1.jpg" alt="profile picture of Victoria Chambers">
                         <div class="activity-text">
                             <p>Victoria Chambers commented on <strong>WebApp's SEO Tips</strong></p>
@@ -201,7 +201,7 @@
                         </div>
                         <p class="gt">&gt;</p>
                     </div>
-                    <div class="activity-container">
+                    <div class="activity-container flex">
                         <img class="profile-image" src="images/member-2.jpg" alt="profile picture of Dale Byrd">
                         <div class="activity-text">
                             <p>Dale Byrd liked the post <strong>Facebook's Changes for 2021</strong></p>
@@ -209,7 +209,7 @@
                         </div>
                         <p class="gt">&gt;</p>
                     </div>
-                    <div class="activity-container">
+                    <div class="activity-container flex">
                         <img class="profile-image" src="images/member-3.jpg" alt="profile picture of Dawn Wood">
                         <div class="activity-text">
                             <p>Dawn Wood commented on Facebook's Changes for 2021</p>
@@ -217,7 +217,7 @@
                         </div>
                         <p class="gt">&gt;</p>
                     </div>
-                    <div class="activity-container">
+                    <div class="activity-container flex">
                         <img class="profile-image" src="images/member-4.jpg" alt="profile picture of Dan Oliver">
                         <div class="activity-text">
                             <p>Dan Oliver posted <strong>WebApp's SEO Tips</strong></p>
@@ -233,8 +233,8 @@
         <section class="message">
             <div class="inner-wrapper">
                 <h3>message user</h3>
-                <form class="widget-container" action="#">
-                    <input class="form-field" id="userField" type="text" placeholder="Search for user">
+                <form class="widget-container flex" action="#">
+                    <input class="form-field full-width" id="userField" type="text" placeholder="Search for user">
                     <textarea class="form-area" id="messageField" placeholder="Message for user"></textarea>
                     <button class="button-primary" id="send">Send</button>
                 </form>
@@ -247,8 +247,8 @@
                 <h3>settings</h3>
 
                 <!-- send email notifications label and toggle switch -->
-                <label class="switch-light switch-material" onclick="">
-                    <input type="checkbox">
+                <label class="switch-light switch-material flex" onclick="">
+                    <input class="full-width" type="checkbox">
                     
                     <strong>
                     Send email notifications
@@ -262,8 +262,8 @@
                 </label>
 
                 <!-- set profile to public label and toggle switch -->
-                <label class="switch-light switch-material" onclick="">
-                    <input type="checkbox">
+                <label class="switch-light switch-material flex" onclick="">
+                    <input class="full-width" type="checkbox">
                 
                     <strong>
                     Set Profile to Public
@@ -277,7 +277,7 @@
                 </label>
 
                 <!-- timezone dropdown menu -->
-                <select class="form-field" id="timezone">
+                <select class="form-field full-width" id="timezone">
                     <option disabled selected>Select a Timezone</option>
                     <option>UTC</option>
                     <option>Eastern</option>
@@ -287,9 +287,9 @@
                 </select>
 
                 <!-- save and cancel buttons -->
-                <div class="settings-button">
-                    <button class="button-primary" id="save">Save</button>
-                    <button class="button-disabled" id="cancel">Cancel</button>
+                <div class="settings-button flex">
+                    <button class="button-primary full-width" id="save">Save</button>
+                    <button class="button-disabled full-width" id="cancel">Cancel</button>
                 </div>
             </div>
         </section>
