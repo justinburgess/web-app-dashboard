@@ -11,3 +11,13 @@
 .social-image {
     border-radius: 50%;
 }
+
+button,
+select,
+input,
+textarea,
+.social-platform {
+    border-radius: 5px;
+    border: solid 1px $borderColor;
+}
+

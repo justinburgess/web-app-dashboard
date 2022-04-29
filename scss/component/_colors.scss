@@ -16,4 +16,12 @@ nav {
 .button-primary {
     background-color: $primaryColorLight;
 }
-
+#cancel {
+    background-color: $secondaryColor;
+}
+.social-text p:first-child {
+    color: $primaryColorLight;
+}
+.social-text p:nth-child(2) {
+    color: $secondaryColor;
+}

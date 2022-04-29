@@ -14,21 +14,45 @@
 }
 
 header {
-    grid-area: 'header';
+    grid-area: header;
 }
 
-nav {
-    grid-area: 'nav';
+#grid-nav {
+    grid-area: nav;
 }
 
 main {
-    grid-area: 'main';
+    grid-area: main;
+    width: 100%;
     display: grid;
+    grid-template-columns: minmax(200px, 1fr);
+    gap: 30px;
+    
+    .traffic,
+    .social,
+    .main-header,
+    .daily, 
+    .members, 
+    .message, 
+    .alert, 
+    .mobile, 
+    .activity, 
+    .settings {
+        grid-column: 1 / span 1;
+    }
+
+     
 }
+.outer-wrapper,
 .inner-wrapper {
-    width: 90vw;
-    margin: 0 auto;
+    height: 100%;
 }
+.inner-wrapper,
+.alert {
+    width: 90%;
+    margin: auto;
+}
+
 #top,
 #top-left,
 #top-right,
@@ -51,6 +75,7 @@ nav {
 }
 .main-header {
     display: flex;
+    width: 100%;
 }
 .headline {
     display: inline-block;
@@ -66,8 +91,13 @@ nav {
     justify-content: space-evenly;
 }
 
-#traffic-chart {
+#traffic-chart,
+#daily-chart,
+#mobile-chart {
     width: 70vw;
+}
+#mobile-chart {
+    margin-bottom: 40px;
 }
 .social-svg {
     margin: auto;
@@ -83,7 +113,12 @@ nav {
     padding: 10px 10px;
 }
 .social-text {
+    display: flex;
+    flex-direction: column;
     padding-left: 1rem;
+    & p {
+        margin: 0;
+    }
 }
 
 .members-container,
@@ -100,6 +135,12 @@ nav {
 
 .gt {
     display: none;
+}
+
+#userField,
+#messageField,
+#send {
+margin-top: 5px;
 }
 
 form {
@@ -126,6 +167,11 @@ form {
 .switch-light {
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
+
+    strong {
+        width: calc(100vw - 85px);
+    }
     span {
         display: inline-block;
     }
@@ -135,6 +181,7 @@ form {
     width: 100%;
     margin: 10px 0;
     padding: 10px;
+    margin-top: 40px;
 }
 
 .settings-button {
@@ -146,38 +193,58 @@ form {
         width: 45%;
     }
 }
+
 // Media queries
 
 @media (min-width: 768px) {
     .grid-container {
-        grid-template-columns: 55px 1fr;
+        grid-template-columns: 70px minmax(698px, 1fr);
         grid-template-areas: 
         'header header'
-        'navigation main'
+        'nav main'
         ;
     }
-
-    .main {
-        grid-template-columns: 50%;
+    #top-left {
+        flex: 1 0 75%;
+        justify-content: space-between;
+        h1 {
+            padding-left: 5%;
+        }
+        img {
+            margin-right: 3%;
+        }
     }
-
-    .traffic, .social {
-        grid-column: 1 / span 2;
+    #top-right {
+        flex: 1 0 25%;
     }
-
-    .daily, .members, .message {
-        grid-column: 1 / span 1;
+    nav {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
     }
-
-    .mobile, .activity, .settings {
-        grid-column: 2 / span 1;
-    }
-
-    .widgets-container-full {
-        width: 90vw;
-    }
-
-    .widgets-container-half {
-        width: 45vw;
+    main {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(349px, 1fr));
+        row-gap: 40px;
+        .traffic, .social, .main-header {
+            grid-column: 1 / span 2;
+        }
+    
+        .daily, .members, .message, .alert {
+            grid-column: 1 / span 1;
+        }
+    
+        .mobile, .activity, .settings {
+            grid-column: 2 / span 1;
+        }
+    
+        .widgets-container-full {
+            max-width: 90vw;
+        }
+    
+        .widgets-container-half {
+            width: 45vw;
+        }
     }
 }
