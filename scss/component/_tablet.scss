@@ -29,12 +29,11 @@
     }
     main {
         grid-template-columns: repeat(2, minmax(349px, 1fr));
-        row-gap: 40px;
-        .traffic, .social, .main-header {
+        .traffic, .social, .main-header, .members, .activity, .message, .settings {
             grid-column: 1 / span 2;
         }
     
-        .mobile, .activity, .settings {
+        .mobile {
             grid-column: 2 / span 1;
         }
     
@@ -44,6 +43,87 @@
     
         .widgets-container-half {
             width: 45vw;
+        }
+        .traffic-nav {
+            justify-content: flex-end;
+            li {
+                padding: 0 10px;
+            }
+        }
+
+        .mobile {
+            border-left: solid 1px $borderColor;
+        }
+        .social-containers {
+            flex-direction: row;
+            .social-platform {
+                flex: 1 0 30%;
+            }
+        }
+        .social-text p:first-child {
+            font-size: 15px;
+        }
+        .social-text p:nth-child(2) {
+            font-size: 20px;
+        }
+        .members-container,
+        .activity-container {
+            flex-direction: row;
+            margin: 10px 0;
+            font-size: 14px;
+            line-height: 1rem;
+            img {
+                flex: 1 0 20%;
+                max-width: 80px;
+            }
+            .members-text,
+            .activity-text {
+                flex: 2 0 60%;
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 10px;
+            }
+            p:last-child {
+                display: inline;
+                flex: 1 0 20%;
+                text-align: right;
+            }
+        }
+        .activity-container {
+            flex-direction: row;
+            margin: 10px 0;
+            font-size: 14px;
+            line-height: 1rem;
+            img {
+                flex: 1 0 20%;
+                max-width: 80px;
+                padding-left: 0;
+            }
+            .activity-text {
+                flex: 2 0 70%;
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 10px;
+            }
+            .gt {
+                display: inline;
+                flex: 1 0 10%;
+                text-align: right;
+                font-size: 20px;
+                color: $primaryColor;
+                padding-right: 20px;
+            }
+        }
+        .members-container:last-child,
+        .activity-container:last-child {
+            border-bottom: none;
+        }
+        .switch-light {
+            justify-content: flex-start;
+            align-items: center;       
+            strong {
+                width: 25vw;
+            }
         }
     }
 }

@@ -5,9 +5,12 @@
     border-left: solid 2px $borderColor;
     border-bottom: solid 2px $borderColor;
 }
-.outer-wrapper {
+.outer-wrapper,
+.members-container,
+.activity-container{
     border-bottom: solid 2px $borderColor;
 }
+
 .social-image {
     border-radius: 50%;
 }
@@ -20,4 +23,3 @@ textarea,
     border-radius: 5px;
     border: solid 1px $borderColor;
 }
-

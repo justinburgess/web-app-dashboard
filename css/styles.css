@@ -349,6 +349,14 @@ template {
   display: none;
 }
 
+/**
+ *  Custom formatting
+ */
+h3,
+p {
+  margin: 0;
+}
+
 /*
 * CSS TOGGLE SWITCH
 *
@@ -1053,7 +1061,6 @@ template {
 
 main {
   grid-template-columns: minmax(200px, 1fr);
-  gap: 30px;
 }
 main .traffic,
 main .social,
@@ -1083,7 +1090,8 @@ nav,
 .social-text,
 .members-container,
 .activity-container,
-form {
+form,
+.social-containers {
   flex-direction: column;
 }
 
@@ -1117,6 +1125,7 @@ form {
 .outer-wrapper,
 .inner-wrapper {
   height: 100%;
+  padding-top: 10px;
 }
 
 .inner-wrapper,
@@ -1139,6 +1148,88 @@ nav {
 
 .headline {
   padding: 10px 5vw;
+}
+
+#mobile-chart,
+#daily-chart {
+  margin-bottom: 40px;
+}
+
+.social-svg {
+  margin: auto;
+}
+
+.social-image {
+  width: 80px;
+  padding: 15px 20px;
+}
+
+.members-container,
+.activity-container {
+  padding: 15px 0;
+}
+
+.social-platform {
+  margin: 10px 5px;
+  padding: 10px 10px;
+}
+
+.social-text {
+  padding-left: 1rem;
+}
+.social-text p {
+  margin: 0;
+}
+
+.gt {
+  display: none;
+}
+
+#userField,
+#messageField,
+#send {
+  margin-top: 5px;
+}
+
+form button,
+.form-field,
+.settings-button button {
+  padding: 10px;
+}
+
+form input,
+form textarea,
+form button {
+  margin-bottom: 10px;
+}
+form input {
+  padding: 10px 5px;
+}
+form textarea {
+  height: 150px;
+  padding: 5px 5px;
+}
+
+.switch-light {
+  margin-top: 20px;
+}
+.switch-light strong {
+  width: calc(100vw - 85px);
+}
+
+.form-field {
+  margin: 10px 0;
+  margin-top: 40px;
+}
+
+.settings-button button {
+  margin-bottom: 20px;
+}
+.settings-button .button-primary {
+  margin-right: 5px;
+}
+.settings-button .button-disabled {
+  margin-left: 5px;
 }
 
 .nav-icons,
@@ -1227,7 +1318,9 @@ nav {
   border-bottom: solid 2px rgba(65, 63, 63, 0.301);
 }
 
-.outer-wrapper {
+.outer-wrapper,
+.members-container,
+.activity-container {
   border-bottom: solid 2px rgba(65, 63, 63, 0.301);
 }
 
@@ -1274,12 +1367,11 @@ textarea,
 
   main {
     grid-template-columns: repeat(2, minmax(349px, 1fr));
-    row-gap: 40px;
   }
-  main .traffic, main .social, main .main-header {
+  main .traffic, main .social, main .main-header, main .members, main .activity, main .message, main .settings {
     grid-column: 1/span 2;
   }
-  main .mobile, main .activity, main .settings {
+  main .mobile {
     grid-column: 2/span 1;
   }
   main .widgets-container-full {
@@ -1287,6 +1379,90 @@ textarea,
   }
   main .widgets-container-half {
     width: 45vw;
+  }
+  main .traffic-nav {
+    justify-content: flex-end;
+  }
+  main .traffic-nav li {
+    padding: 0 10px;
+  }
+  main .mobile {
+    border-left: solid 1px rgba(65, 63, 63, 0.301);
+  }
+  main .social-containers {
+    flex-direction: row;
+  }
+  main .social-containers .social-platform {
+    flex: 1 0 30%;
+  }
+  main .social-text p:first-child {
+    font-size: 15px;
+  }
+  main .social-text p:nth-child(2) {
+    font-size: 20px;
+  }
+  main .members-container,
+main .activity-container {
+    flex-direction: row;
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 1rem;
+  }
+  main .members-container img,
+main .activity-container img {
+    flex: 1 0 20%;
+    max-width: 80px;
+  }
+  main .members-container .members-text,
+main .members-container .activity-text,
+main .activity-container .members-text,
+main .activity-container .activity-text {
+    flex: 2 0 60%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 10px;
+  }
+  main .members-container p:last-child,
+main .activity-container p:last-child {
+    display: inline;
+    flex: 1 0 20%;
+    text-align: right;
+  }
+  main .activity-container {
+    flex-direction: row;
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 1rem;
+  }
+  main .activity-container img {
+    flex: 1 0 20%;
+    max-width: 80px;
+    padding-left: 0;
+  }
+  main .activity-container .activity-text {
+    flex: 2 0 70%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 10px;
+  }
+  main .activity-container .gt {
+    display: inline;
+    flex: 1 0 10%;
+    text-align: right;
+    font-size: 20px;
+    color: rgb(86, 101, 240);
+    padding-right: 20px;
+  }
+  main .members-container:last-child,
+main .activity-container:last-child {
+    border-bottom: none;
+  }
+  main .switch-light {
+    justify-content: flex-start;
+    align-items: center;
+  }
+  main .switch-light strong {
+    width: 25vw;
   }
 }
 
