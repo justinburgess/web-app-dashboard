@@ -1,0 +1,16 @@
+@media (min-width: 1024px) {
+    main {
+        .members, .message {
+            grid-column: 1 / span 1;
+        }
+        .activity, .settings {
+            grid-column: 2 / span 1;
+        }
+    }
+    .settings-button button {
+        margin-bottom: 10px;
+    }
+    .settings {
+        border-top: none;
+    }
+}

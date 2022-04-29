@@ -1,16 +1,18 @@
 body {
     font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
 }
-
-h1,
-h2,
-h3 {
+h1 {
+    font-size: 20px;
+}
+h2, h3, li, select, input, textarea, .switch-light {
     font-size: 15px;
+}
+h1,h2 {
     text-transform: capitalize;
 }
-
-.switch-light {
-    font-size: 15px;
+h3 {
+    text-transform: uppercase;
 }
 .social-text p:first-child {
     font-size: 20px;

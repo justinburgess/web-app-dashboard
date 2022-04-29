@@ -18,6 +18,9 @@
     margin: auto;
 }
 
+.traffic .outer-wrapper {
+    margin-bottom: 15px;
+}
 #top,
 #top-left,
 #top-right,
@@ -33,7 +36,10 @@ nav {
 .headline {
     padding: 10px 5vw;
 }
-
+.mobile h3,
+.daily h3 {
+    margin-bottom: 20px;
+}
 #mobile-chart,
 #daily-chart {
     margin-bottom: 40px;
@@ -64,6 +70,10 @@ nav {
     display: none;
 }
 
+.message h3
+.settings-top h3 {
+    margin: 10px 0;
+}
 #userField,
 #messageField,
 #send {
@@ -114,4 +124,46 @@ form {
     .button-disabled {
         margin-left: 5px;
     }
+}
+
+// Borders
+
+#top-left {
+    border-right: solid 2px white;
+}
+.tab {
+    border-left: solid 2px $borderColor;
+    border-bottom: solid 2px $borderColor;
+}
+.outer-wrapper,
+.members-container,
+.activity-container{
+    border-bottom: solid 2px $borderColor;
+}
+
+.social-image {
+    border-radius: 50%;
+}
+
+button,
+select,
+input,
+textarea,
+.social-platform {
+    border-radius: 5px;
+    border: solid 1px $borderColor;
+}
+
+.members,
+.message {
+    border-right: solid 2px $borderColor;
+}
+
+.members-container:last-child,
+.activity-container:last-child {
+            border-bottom: none;
+}
+
+.settings {
+    border-top: solid 2px $borderColor;
 }

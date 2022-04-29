@@ -66,8 +66,7 @@
         .social-text p:nth-child(2) {
             font-size: 20px;
         }
-        .members-container,
-        .activity-container {
+        .members-container {
             flex-direction: row;
             margin: 10px 0;
             font-size: 14px;
@@ -113,10 +112,6 @@
                 color: $primaryColor;
                 padding-right: 20px;
             }
-        }
-        .members-container:last-child,
-        .activity-container:last-child {
-            border-bottom: none;
         }
         .switch-light {
             justify-content: flex-start;
