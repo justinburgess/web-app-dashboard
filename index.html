@@ -28,16 +28,16 @@
 
     <!-- navigation bar -->
     <nav class="flex" id="grid-nav">
-        <a href="#" id="home">
+        <a href="#top" id="home">
             <img class="nav-icons" src="svgs/home.svg" alt="home icon">
         </a>
-        <a href="#">
+        <a href="#chart">
             <img class="nav-icons" src="svgs/bar-chart.svg" alt="chart icon">
         </a>
-        <a href="#">
+        <a href="#new-members">
             <img class="nav-icons" src="svgs/members.svg" alt="members icon">
         </a>
-        <a href="#" id="settings">
+        <a href="#settings">
             <img class="nav-icons" src="svgs/settings.svg" alt="settings icon">
         </a>
     </nav>
@@ -56,16 +56,16 @@
         </div>
 
         <!-- traffic chart -->
-        <section class="traffic">
+        <section class="traffic" id="chart">
             <div class="outer-wrapper">
                 <div class="inner-wrapper">
                     <div class="traffic-header">
                         <h3>traffic</h3>
                         <ul class="traffic-nav flex">
-                            <li class="traffic-nav-link">hourly</li>
-                            <li class="traffic-nav-link">daily</li>
-                            <li class="traffic-nav-link">weekly</li>
-                            <li class="traffic-nav-link">monthly</li>
+                            <li class="traffic-nav-link"><a href="#"><strong>hourly</strong></a></li>
+                            <li class="traffic-nav-link"><a href="#"><strong>daily</strong></a></li>
+                            <li class="traffic-nav-link"><a href="#"><strong>weekly</strong></a></li>
+                            <li class="traffic-nav-link"><a href="#"><strong>monthly</strong></a></li>
                         </ul>
                     </div>
                     <div class="widget-container-full">
@@ -148,7 +148,7 @@
         </section>
             
         <!-- new members section -->
-        <section class="members">
+        <section class="members" id="new-members">
             <div class="outer-wrapper">
                 <div class="inner-wrapper">
                     <h3>new members</h3>
@@ -242,7 +242,7 @@
         </section>
 
         <!-- local settings widget -->
-        <section class="settings">
+        <section class="settings" id="settings">
             <div class="inner-wrapper flex">
                 <div class="settings-top">
                     <h3>settings</h3>
@@ -299,8 +299,8 @@
     </main>
 
     <!-- open js chart script from charjs.org -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" integrity="sha512-Lii3WMtgA0C0qmmkdCpsG0Gjr6M0ajRyQRQSbTF6BsrVh/nhZdHpVZ76iMIPvQwz1eoXC3DmAg9K51qT5/dEVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- custom script -->
     <script src="js/app.js"></script>
 </body>

@@ -357,6 +357,11 @@ p {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /*
 * CSS TOGGLE SWITCH
 *
@@ -1316,7 +1321,7 @@ h2, h3, li, select, input, textarea, .switch-light {
   font-size: 15px;
 }
 
-h1, h2 {
+h1, h2, a {
   text-transform: capitalize;
 }
 
@@ -1344,12 +1349,12 @@ h3 {
 }
 
 #top {
-  background-color: #8590f4;
+  background-color: #9ca5f6;
   color: white;
 }
 
 nav {
-  background-color: #0e1c9f;
+  background-color: #060c41;
   opacity: 0.7;
 }
 
@@ -1362,7 +1367,7 @@ nav {
 
 .social-image,
 .button-primary {
-  background-color: #8590f4;
+  background-color: #9ca5f6;
 }
 
 #cancel {
@@ -1370,7 +1375,7 @@ nav {
 }
 
 .social-text p:first-child {
-  color: #8590f4;
+  color: #9ca5f6;
 }
 
 .social-text p:nth-child(2) {
@@ -1381,6 +1386,90 @@ button {
   color: white;
 }
 
+.members-text a {
+  color: #9ca5f6;
+}
+
+#bell:hover {
+  transform: translate(0, 100%);
+  transform-origin: 50% 30%;
+  animation: ring 3s cubic-bezier(0.01, 1.1, 0.93, -0.23) forwards;
+}
+
+@keyframes ring {
+  0% {
+    transform: rotate(0);
+  }
+  1% {
+    transform: rotate(30deg);
+  }
+  3% {
+    transform: rotate(-28deg);
+  }
+  5% {
+    transform: rotate(34deg);
+  }
+  7% {
+    transform: rotate(-32deg);
+  }
+  9% {
+    transform: rotate(30deg);
+  }
+  11% {
+    transform: rotate(-28deg);
+  }
+  13% {
+    transform: rotate(26deg);
+  }
+  15% {
+    transform: rotate(-24deg);
+  }
+  17% {
+    transform: rotate(22deg);
+  }
+  19% {
+    transform: rotate(-20deg);
+  }
+  21% {
+    transform: rotate(18deg);
+  }
+  23% {
+    transform: rotate(-16deg);
+  }
+  25% {
+    transform: rotate(14deg);
+  }
+  27% {
+    transform: rotate(-12deg);
+  }
+  29% {
+    transform: rotate(10deg);
+  }
+  31% {
+    transform: rotate(-8deg);
+  }
+  33% {
+    transform: rotate(6deg);
+  }
+  35% {
+    transform: rotate(-4deg);
+  }
+  37% {
+    transform: rotate(2deg);
+  }
+  39% {
+    transform: rotate(-1deg);
+  }
+  41% {
+    transform: rotate(1deg);
+  }
+  43% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
 @media (min-width: 768px) {
   .grid-container {
     grid-template-columns: 70px minmax(698px, 1fr);
@@ -1455,8 +1544,7 @@ button {
     flex: 1 0 20%;
     max-width: 80px;
   }
-  main .members-container .members-text,
-main .members-container .activity-text {
+  main .members-container .members-text {
     flex: 2 0 60%;
     flex-direction: column;
     align-items: flex-start;
@@ -1483,6 +1571,7 @@ main .members-container .activity-text {
     flex-direction: column;
     align-items: flex-start;
     padding-left: 10px;
+    text-align: left;
   }
   main .activity-container .gt {
     display: inline;
