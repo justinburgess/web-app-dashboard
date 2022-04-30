@@ -14,9 +14,16 @@ h1, h2, a {
 h3 {
     text-transform: uppercase;
 }
+.alert-banner-close {
+    font-size: large;
+}
 .social-text p:first-child {
     font-size: 20px;
 }
 .social-text p:nth-child(2) {
     font-size: 40px;
+}
+.members-container,
+.activity-container {
+    text-align: center;
 }

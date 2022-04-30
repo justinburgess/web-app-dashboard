@@ -22,21 +22,17 @@ form,
 
 .social-platform,
 .members-container,
-.activity-container {
+.activity-container,
+.alert-banner {
     align-items: center;
 
-}
-
-.members-container,
-.activity-container {
-    text-align: center;
 }
 
 .switch-light {
     justify-content: space-between;
 }
 
-.settings .inner-wrapper {
+.alert-banner, .settings .inner-wrapper {
     justify-content: space-between;
 }
 

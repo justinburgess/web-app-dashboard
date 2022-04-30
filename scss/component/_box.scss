@@ -17,6 +17,16 @@
     width: 90%;
     margin: auto;
 }
+.alert-banner {
+    margin: 1rem;
+}
+.alert-banner:first-child {
+    padding-left: 1rem;
+}
+.alert-banner-close {
+    display: inline-block;
+    padding: .5rem;
+}
 
 .traffic .outer-wrapper {
     margin-bottom: 15px;
@@ -149,6 +159,7 @@ button,
 select,
 input,
 textarea,
+.alert-banner,
 .social-platform {
     border-radius: 5px;
     border: solid 1px $borderColor;

@@ -1067,6 +1067,7 @@ a {
 main {
   grid-template-columns: minmax(200px, 1fr);
 }
+main .alert,
 main .traffic,
 main .social,
 main .main-header,
@@ -1105,20 +1106,16 @@ form,
 
 .social-platform,
 .members-container,
-.activity-container {
+.activity-container,
+.alert-banner {
   align-items: center;
-}
-
-.members-container,
-.activity-container {
-  text-align: center;
 }
 
 .switch-light {
   justify-content: space-between;
 }
 
-.settings .inner-wrapper {
+.alert-banner, .settings .inner-wrapper {
   justify-content: space-between;
 }
 
@@ -1144,6 +1141,19 @@ form,
 .alert {
   width: 90%;
   margin: auto;
+}
+
+.alert-banner {
+  margin: 1rem;
+}
+
+.alert-banner:first-child {
+  padding-left: 1rem;
+}
+
+.alert-banner-close {
+  display: inline-block;
+  padding: 0.5rem;
 }
 
 .traffic .outer-wrapper {
@@ -1280,6 +1290,7 @@ button,
 select,
 input,
 textarea,
+.alert-banner,
 .social-platform {
   border-radius: 5px;
   border: solid 1px rgba(65, 63, 63, 0.301);
@@ -1329,12 +1340,21 @@ h3 {
   text-transform: uppercase;
 }
 
+.alert-banner-close {
+  font-size: large;
+}
+
 .social-text p:first-child {
   font-size: 20px;
 }
 
 .social-text p:nth-child(2) {
   font-size: 40px;
+}
+
+.members-container,
+.activity-container {
+  text-align: center;
 }
 
 #student-profile-pic {
@@ -1356,6 +1376,11 @@ h3 {
 nav {
   background-color: #060c41;
   opacity: 0.7;
+}
+
+.alert-banner {
+  background-color: rgb(86, 101, 240);
+  color: white;
 }
 
 .tab,
@@ -1501,7 +1526,7 @@ button {
   main {
     grid-template-columns: repeat(2, minmax(349px, 1fr));
   }
-  main .traffic, main .social, main .main-header, main .members, main .activity, main .message, main .settings {
+  main .alert, main .traffic, main .social, main .main-header, main .members, main .activity, main .message, main .settings {
     grid-column: 1/span 2;
   }
   main .mobile {

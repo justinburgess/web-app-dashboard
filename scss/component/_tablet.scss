@@ -29,7 +29,7 @@
     }
     main {
         grid-template-columns: repeat(2, minmax(349px, 1fr));
-        .traffic, .social, .main-header, .members, .activity, .message, .settings {
+        .alert, .traffic, .social, .main-header, .members, .activity, .message, .settings{
             grid-column: 1 / span 2;
         }
     
