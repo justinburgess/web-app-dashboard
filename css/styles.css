@@ -1107,7 +1107,9 @@ form,
 .social-platform,
 .members-container,
 .activity-container,
-.alert-banner {
+.alert-banner,
+#top-left,
+#top-right {
   align-items: center;
 }
 
@@ -1141,6 +1143,10 @@ form,
 .alert {
   width: 90%;
   margin: auto;
+}
+
+#bell {
+  margin-right: 2rem;
 }
 
 .alert-banner {

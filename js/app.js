@@ -5,6 +5,7 @@ const mobileCanvas = document.getElementById("mobile-chart");
 const user = document.getElementById("userField");
 const message = document.getElementById("messageField");
 const send = document.getElementById("send");
+const notification = document.getElementById("bell");
 
 
 let trafficData = {
@@ -106,9 +107,16 @@ let mobileChart = new Chart(mobileCanvas, {
     options: mobileOptions
 });
     
+
+// disable notification alert
+notification.addEventListener('click', () => {
+        const element = notification.firstElementChild;
+        element.style.display = "none";
+    });
         
 // create html for the banner
-alertBanner.innerHTML = `
+alertBanner.innerHTML = 
+    `
         <div class="alert-banner flex">
             <p><strong>Alert:</strong> You have <strong>6</strong> overdue tasks to complete</p>
             <p class="alert-banner-close">x</p>
