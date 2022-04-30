@@ -5,9 +5,11 @@ const mobileCanvas = document.getElementById("mobile-chart");
 const user = document.getElementById("userField");
 const message = document.getElementById("messageField");
 const send = document.getElementById("send");
-const notification = document.getElementById("bell");
+const notificationIcon = document.getElementById("bell");
+const notificationList = document.getElementById("bell-list");
 
 
+// js chart data
 let trafficData = {
     labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3",
     "4-10", "11-17", "18-24", "25-31"],
@@ -107,13 +109,41 @@ let mobileChart = new Chart(mobileCanvas, {
     options: mobileOptions
 });
     
+// notification data
+const notificationMessages = [ 
+    'Dan Oliver requested access to your traffic data',
+    'Dawn Wood sent you a message',
+    'Dale Byrd requested access to the daily traffic dashboard',
+    'Your password expires in 6 days',
+    'Dale Byrd posted on your page',
+    'Today is Dan Oliver\'s birthday'
+];
 
 // disable notification alert
-notification.addEventListener('click', () => {
-        const element = notification.firstElementChild;
-        element.style.display = "none";
-    });
-        
+notificationIcon.addEventListener('click', (e) => {
+        const element = e.target.firstElementChild;
+        if (element.classList !== 'clicked') {
+            element.style.display = "none";
+            console.log('clicked');
+    }
+});
+ 
+// unordered list function
+function createUnorderedList (orderedList, listObjects) {
+    console.log(orderedList);
+    let lis = '';
+    for (let i = 0; i < listObjects.length; i++){
+        lis += `<li>${listObjects[i]}</li>`;
+    }
+    console.log(lis);
+    orderedList.innerHTML = lis;
+    console.log(orderedList);
+    return orderedList;
+}
+
+// call unordered list function to create notifications
+createUnorderedList(notificationList, notificationMessages);
+
 // create html for the banner
 alertBanner.innerHTML = 
     `

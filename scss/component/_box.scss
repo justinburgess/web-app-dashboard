@@ -20,6 +20,23 @@
 #bell {
     margin-right: 2rem;
 }
+.bell-list-container {
+    position: relative;
+}
+#bell-list {
+    position: absolute;
+    top: -.8rem;
+    left: -1rem;
+    z-index: 1;
+    min-width: 300px;
+    li {
+        display: block;
+        padding: 1rem;
+        border-top: solid 1px $borderColor;
+        background-color: $backgroundColor;
+        color: $primaryColor;
+    }
+}
 .alert-banner {
     margin: 1rem;
 }
