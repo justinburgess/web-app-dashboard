@@ -111,9 +111,9 @@ let mobileChart = new Chart(mobileCanvas, {
     
 // notification data
 const notificationMessages = [ 
-    'Dan Oliver requested access to your traffic data',
+    'Dan Oliver requested access to your page',
     'Dawn Wood sent you a message',
-    'Dale Byrd requested access to the daily traffic dashboard',
+    'Dale Byrd shared his page with you',
     'Your password expires in 6 days',
     'Dale Byrd posted on your page',
     'Today is Dan Oliver\'s birthday'
@@ -121,28 +121,45 @@ const notificationMessages = [
 
 // disable notification alert
 notificationIcon.addEventListener('click', (e) => {
-        const element = e.target.firstElementChild;
-        if (element.classList !== 'clicked') {
-            element.style.display = "none";
-            console.log('clicked');
+    const element = e.target.firstElementChild;
+    if (element.className !== 'invisible') {
+        makeInvisible(element);
+    }
+
+    const listItems = notificationList.childNodes;
+    for(let i = 0; i < listItems.length; i++) {
+        let listItem = listItems[i];
+        if (listItem.className === 'invisible') {
+            makeVisible(listItem);
+        }    
     }
 });
- 
+
+// disable notification list item
+notificationList.addEventListener('click', event => {
+    makeInvisible(event.target);
+});
+
+// make element invisible
+function makeInvisible(element) {
+    return element.classList.add('invisible');
+}
+
+// make element invisible element visible
+function makeVisible(element) {
+    return element.classList.remove('invisible');
+}
 // unordered list function
-function createUnorderedList (orderedList, listObjects) {
-    console.log(orderedList);
+function createListElements (listElement, listObjects) {
     let lis = '';
     for (let i = 0; i < listObjects.length; i++){
-        lis += `<li>${listObjects[i]}</li>`;
+        lis += `<li class="invisible">${listObjects[i]}</li>`;
     }
-    console.log(lis);
-    orderedList.innerHTML = lis;
-    console.log(orderedList);
-    return orderedList;
+    return listElement.innerHTML = lis;
 }
 
 // call unordered list function to create notifications
-createUnorderedList(notificationList, notificationMessages);
+createListElements(notificationList, notificationMessages);
 
 // create html for the banner
 alertBanner.innerHTML = 
