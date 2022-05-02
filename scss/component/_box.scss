@@ -23,12 +23,25 @@
 #bell {
     margin-right: 2rem;
 }
-.bell-list-container {
+.bell-list-container,
+.search-results-container {
     position: relative;
 }
 #bell-list {
     position: absolute;
     right: -9rem;
+    z-index: 1;
+    min-width: 300px;
+    li {
+        padding: 1rem;
+        border-top: solid 1px $borderColor;
+        background-color: $backgroundColor;
+        color: $primaryColor;
+    }
+}
+#search-results {
+    position: absolute;
+    top: -1.5rem;
     z-index: 1;
     min-width: 300px;
     li {

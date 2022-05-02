@@ -3,6 +3,7 @@ const trafficCanvas = document.getElementById('traffic-chart');
 const dailyCanvas = document.getElementById("daily-chart");
 const mobileCanvas = document.getElementById("mobile-chart");
 const user = document.getElementById("userField");
+const searchResults = document.getElementById("search-results");
 const message = document.getElementById("messageField");
 const send = document.getElementById("send");
 const notificationIcon = document.getElementById("bell");
@@ -151,6 +152,26 @@ const notificationMessages = [
     'Today is Dan Oliver\'s birthday'
 ];
 
+// user info
+const userInfo = [
+    {
+        fullname: 'victoria chambers',
+        email: 'victoria.chambers80@example.com'
+    },
+    {
+        fullname: 'dale byrd',
+        email: 'dale.byrd52@example.com'
+    },
+    {
+        fullname: 'dawn wood',
+        email: 'dawn.wood16@example.com'
+    },
+    {
+        fullname: 'dan oliver',
+        email: 'dan.oliver82@example.com'
+    }
+]
+
 // disable notification alert
 notificationIcon.addEventListener('click', (e) => {
     const element = e.target.firstElementChild;
@@ -183,17 +204,17 @@ function makeVisible(element) {
 }
 
 // unordered list function
-function createListElements (listElement, listObjects) {
+function createListElements (listElement, listObjects, elementClass="") {
     let lis = '';
     for (let i = 0; i < listObjects.length; i++){
-        lis += `<li class="invisible">${listObjects[i]}</li>`;
+        lis += `<li class="${elementClass}">${listObjects[i]}</li>`;
     }
     return listElement.innerHTML = lis;
 }
 
 
 // call unordered list function to create notifications
-createListElements(notificationList, notificationMessages);
+createListElements(notificationList, notificationMessages, "invisible");
 
 // create html for the banner
 alertBanner.innerHTML = 
@@ -238,6 +259,26 @@ trafficInterval.addEventListener('click', e => {
     if (element.textContent === 'monthly') { 
         trafficChart.data = trafficDataMonthly 
         trafficChart.update();
+    }
+})
+
+// user search autocomplete
+user.addEventListener('input', (e) => {
+    let lis = '';
+    for ( let i = 0; i < userInfo.length ; i++ ) {
+        searchInput = e.target.value;
+        const user = userInfo[i];
+        if ( searchInput !== '' && ( user.fullname.includes(searchInput) || user.email.includes(searchInput) ) ) {
+                lis += `<li>${user.fullname}</li>`;
+        }
+    }
+    return searchResults.innerHTML = lis;
+})
+
+searchResults.addEventListener('click', e => {
+    element = e.target;
+    if (element.tagName === 'LI') {
+        user.value = e.target.textContent;
     }
 })
 
