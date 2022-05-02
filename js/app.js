@@ -7,15 +7,47 @@ const message = document.getElementById("messageField");
 const send = document.getElementById("send");
 const notificationIcon = document.getElementById("bell");
 const notificationList = document.getElementById("bell-list");
+const trafficInterval = document.querySelector(".traffic-nav");
 
 
 // js chart data
-let trafficData = {
+let trafficData = trafficDataMonthly  = {
     labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3",
     "4-10", "11-17", "18-24", "25-31"],
     datasets: [{
         data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500,
         2500],
+        backgroundColor: 'rgba(116, 119, 191, .3)',
+        borderWidth: 1,
+        }]
+};
+
+let trafficDataHourly = {
+    labels: ["01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00",
+    "08:00", "09:00", "10:00", "11:00", "12:00"],
+    datasets: [{
+        data:  [1250, 1850, 1000, 2000,  1750, 750, 1250,  2250, 1500,
+        2500, 1500, 300],
+        backgroundColor: 'rgba(116, 119, 191, .3)',
+        borderWidth: 1,
+        }]
+};
+
+let trafficDataDaily = {
+    labels: ["01:00", "03:00", "05:00", "07:00", "09:00", "11:00", "13:00",
+    "15:00", "17:00", "19:00", "21:00", "23:00", "01:00"],
+    datasets: [{
+        data:  [ 1850, 2500, 1000, 1250, 1750, 750, 2000, 1250,  2250, 1500,
+        1500, 450, 1700],
+        backgroundColor: 'rgba(116, 119, 191, .3)',
+        borderWidth: 1,
+        }]
+};
+
+let trafficDataWeekly = {
+    labels: ["Thurs", "Fri", "Sat", "Sun", "Mon", "Tues", "Wed"],
+    datasets: [{
+        data:  [1000, 2500, 750, 1250, 1750, 2000, 1250],
         backgroundColor: 'rgba(116, 119, 191, .3)',
         borderWidth: 1,
         }]
@@ -149,6 +181,7 @@ function makeInvisible(element) {
 function makeVisible(element) {
     return element.classList.remove('invisible');
 }
+
 // unordered list function
 function createListElements (listElement, listObjects) {
     let lis = '';
@@ -157,6 +190,7 @@ function createListElements (listElement, listObjects) {
     }
     return listElement.innerHTML = lis;
 }
+
 
 // call unordered list function to create notifications
 createListElements(notificationList, notificationMessages);
@@ -177,6 +211,35 @@ alertBanner.addEventListener('click', e => {
         alertBanner.style.display = "none";
     }
 });
+
+// traffic interval selection
+trafficInterval.addEventListener('click', e => {
+    const element = e.target;
+    if (element.tagName === 'LI' && (!element.classList.contains('highlight'))) {
+        const intervals = trafficInterval.children;
+        for (let i = 0; i < intervals.length; i++) {
+            let interval = intervals[i];
+            if (interval.classList.contains('highlight')) {
+                interval.classList.remove('highlight');
+            }
+        }
+        element.classList.add('highlight');
+    }
+    if (element.textContent === 'hourly') { 
+        trafficChart.data = trafficDataHourly;
+        trafficChart.update(); }
+    if (element.textContent === 'daily') { 
+        trafficChart.data = trafficDataDaily;
+        trafficChart.update();}
+    if (element.textContent === 'weekly') { 
+        trafficChart.data = trafficDataWeekly;
+        trafficChart.update();
+    }
+    if (element.textContent === 'monthly') { 
+        trafficChart.data = trafficDataMonthly 
+        trafficChart.update();
+    }
+})
 
 // send events
 
