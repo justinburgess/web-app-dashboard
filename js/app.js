@@ -9,6 +9,9 @@ const send = document.getElementById("send");
 const notificationIcon = document.getElementById("bell");
 const notificationList = document.getElementById("bell-list");
 const trafficInterval = document.querySelector(".traffic-nav");
+const emailNotifications = document.getElementById("email-notifications");
+const emailNotificationsOn = document.getElementById("email-notifications-on");
+const publicProfile = document.getElementById("public-profile");
 
 
 // js chart data
@@ -155,19 +158,19 @@ const notificationMessages = [
 // user info
 const userInfo = [
     {
-        fullname: 'victoria chambers',
+        fullname: 'Victoria Chambers',
         email: 'victoria.chambers80@example.com'
     },
     {
-        fullname: 'dale byrd',
+        fullname: 'Dale Byrd',
         email: 'dale.byrd52@example.com'
     },
     {
-        fullname: 'dawn wood',
+        fullname: 'Dawn Wood',
         email: 'dawn.wood16@example.com'
     },
     {
-        fullname: 'dan oliver',
+        fullname: 'Dan Oliver',
         email: 'dan.oliver82@example.com'
     }
 ]
@@ -265,10 +268,12 @@ trafficInterval.addEventListener('click', e => {
 // user search autocomplete
 user.addEventListener('input', (e) => {
     let lis = '';
+    searchResults.style.display = '';
+    user.style.color = '';
     for ( let i = 0; i < userInfo.length ; i++ ) {
-        searchInput = e.target.value;
+        searchInput = e.target.value.toLowerCase();
         const user = userInfo[i];
-        if ( searchInput !== '' && ( user.fullname.includes(searchInput) || user.email.includes(searchInput) ) ) {
+        if ( searchInput !== '' && ( user.fullname.toLocaleLowerCase().includes(searchInput) || user.email.includes(searchInput) )) {
                 lis += `<li>${user.fullname}</li>`;
         }
     }
@@ -279,11 +284,12 @@ searchResults.addEventListener('click', e => {
     element = e.target;
     if (element.tagName === 'LI') {
         user.value = e.target.textContent;
+        user.style.color = "#5665f0"
+        searchResults.style.display = 'none';
     }
 })
 
 // send events
-
 send.addEventListener('click', () => {
     // ensure user and message fields are filled out
     if (user.value === "" && message.value === "") {
@@ -295,4 +301,20 @@ send.addEventListener('click', () => {
     } else {
     alert(`Message successfully sent to: ${user.value}`);
     }
-    });
+});
+
+//
+let emailNotificationsIsOn = false;
+
+emailNotifications.addEventListener('animationstart', e => {
+    console.log(e);
+    // let toggleStatus = e.pseudoElement;
+    // if (toggleStatus === '::before') {
+    //     emailNotificationsIsOn = true;
+    // }
+    // if (toggleStatus === '::after') {
+    //     emailNotificationsIsOn = false;
+    // }
+    // console.log(emailNotificationsIsOn);
+});
+
