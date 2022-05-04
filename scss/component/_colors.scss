@@ -35,7 +35,15 @@ nav {
 }
 button {
     color: white;
+    transition: background-color .1s ease-in-out;
 }
+.button-primary:active {
+    background-color: $primaryColorDark;
+}
+#cancel:active {
+    background-color: $secondaryColorDark;
+}
+
 .members-text a {
     color: $primaryColorLight;
 }

@@ -279,6 +279,15 @@ function makeVisible(element) {
     return element.classList.remove('invisible');
 }
 
+function changeVisibility(element) {
+    if (element.className === 'invisible') {
+        makeVisible(element);
+    }
+    if (element.className !== 'invisible') {
+        makeInvisible(element);
+    }
+}
+
 
 // disable notification list item
 notificationList.addEventListener('click', event => {
@@ -298,11 +307,8 @@ notificationList.addEventListener('click', event => {
 notificationIcon.addEventListener('click', (e) => {
     createListElements(notificationList, notificationMessageText(webAppStorage.notificationMessages), "invisible");
     const element = e.target.firstElementChild;
-    if (element.className !== 'invisible') {
-        makeInvisible(element);
-        webAppStorage.notificationsAvailable = false;
-    }
-
+    changeVisibility(element);
+    webAppStorage.notificationsAvailable = false;
     const listItems = notificationList.childNodes;
     for(let i = 0; i < listItems.length; i++) {
         let listItem = listItems[i];
@@ -401,19 +407,36 @@ const timezone = document.getElementById("timezone");
 emailNotifications.checked = webAppStorage.emailNotificationsIsOn;
 publicProfile.checked = webAppStorage.publicProfileIsOn;
 timezone.value = webAppStorage.selectedTimezone;
+if (webAppStorage.emailNotificationsIsOn) {
+    // console.log(`Email notifications are on: ${emailNotificationsIsOn}`);
+    toggleStyling(emailNotifications, 'add');
+};
+if (webAppStorage.publicProfileIsOn) {
+    // console.log(`Profile is public: ${publicProfileIsOn}`);
+    toggleStyling(publicProfile, 'add');
+};
+
+function toggleStyling(element, application) {
+    let toggle = element.nextElementSibling.nextElementSibling.firstElementChild;
+    if (application === 'add') {
+        toggle.style.position = "relative";
+        toggle.style.color = "#fff";
+        toggle.style.fontWeight = "bold";
+    }
+    if (application === 'remove') {
+        toggle.style.position = "";
+        toggle.style.color = "";
+    }
+}
 
 // adds and removes 'On' font styling to toggle switch element based 'on' or 'off' status
 function toggleSwitch(event) {
     let toggleOn = event.srcElement.checked;
-    let element = event.target.nextElementSibling.nextElementSibling.firstElementChild;
     if (toggleOn) {
-        element.style.position = "relative";
-        element.style.color = "#fff";
-        element.style.fontWeight = "bold";
+        toggleStyling(event.target, 'add');
     }
     if (!toggleOn) {
-        element.style.position = "";
-        element.style.color = "";
+        toggleStyling(event.target, 'remove');
     }
 }
 
@@ -439,5 +462,6 @@ publicProfile.addEventListener('click', toggleSwitchProfile);
 timezone.addEventListener('click', e => {
     webAppStorage.selectedTimezone = e.target.value; //stores in local storage variable
 })
+
 
 

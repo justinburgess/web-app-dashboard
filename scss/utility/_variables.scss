@@ -3,6 +3,7 @@ $primaryColor : #5665f0;
 $primaryColorLight : lighten($primaryColor, 15%);
 $primaryColorDark : darken($primaryColor, 50%);
 $secondaryColor: darkgray;
+$secondaryColorDark: darken($secondaryColor, 50%);
 $backgroundColor: rgb(248, 248, 248);
 $borderColor : rgba(65, 63, 63, 0.301);
 $highlightColor: #03f834;
