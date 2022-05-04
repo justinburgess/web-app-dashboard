@@ -11,6 +11,7 @@ const notificationList = document.getElementById("bell-list");
 const trafficInterval = document.querySelector(".traffic-nav");
 const emailNotifications = document.getElementById("email-notifications");
 const emailNotificationsOn = document.getElementById("email-notifications-on");
+const emailNotificationsOff = document.getElementById("email-notifications-off");
 const publicProfile = document.getElementById("public-profile");
 
 
@@ -304,17 +305,22 @@ send.addEventListener('click', () => {
 });
 
 //
+function toggleSwitch(event) {
+    let toggleOn = event.srcElement.checked;
+    let element = event.target.nextElementSibling.nextElementSibling.firstElementChild;
+    if (toggleOn) {
+        element.style.position = "relative";
+        element.style.color = "#fff";
+        element.style.fontWeight = "bold";
+    }
+    if (!toggleOn) {
+        element.style.position = "";
+        element.style.color = "";
+    }
+}
 let emailNotificationsIsOn = false;
 
-emailNotifications.addEventListener('animationstart', e => {
-    console.log(e);
-    // let toggleStatus = e.pseudoElement;
-    // if (toggleStatus === '::before') {
-    //     emailNotificationsIsOn = true;
-    // }
-    // if (toggleStatus === '::after') {
-    //     emailNotificationsIsOn = false;
-    // }
-    // console.log(emailNotificationsIsOn);
-});
+emailNotifications.addEventListener('click', toggleSwitch);
+publicProfile.addEventListener('click', toggleSwitch);
+    
 
