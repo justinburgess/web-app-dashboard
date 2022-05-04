@@ -13,6 +13,7 @@ const emailNotifications = document.getElementById("email-notifications");
 const emailNotificationsOn = document.getElementById("email-notifications-on");
 const emailNotificationsOff = document.getElementById("email-notifications-off");
 const publicProfile = document.getElementById("public-profile");
+const timezone = document.getElementById("timezone");
 
 
 // js chart data
@@ -318,9 +319,30 @@ function toggleSwitch(event) {
         element.style.color = "";
     }
 }
-let emailNotificationsIsOn = false;
 
-emailNotifications.addEventListener('click', toggleSwitch);
-publicProfile.addEventListener('click', toggleSwitch);
+function toggleSwitchEmail(event) {
+    webAppStorage.emailNotificationsIsOn = event.srcElement.checked;
+    toggleSwitch(event);
+}
+
+function toggleSwitchProfile(event) {
+    webAppStorage.publicProfileIsOn = event.srcElement.checked;
+    toggleSwitch(event);
+}
+
+let webAppStorage = {
+    emailNotificationsIsOn : false,
+    publicProfileIsOn: false,
+    selectedTimezone : 'Select Timezone',
+}
+
+
+
+emailNotifications.addEventListener('click', toggleSwitchEmail);
+publicProfile.addEventListener('click', toggleSwitchProfile);
     
+timezone.addEventListener('click', e => {
+    webAppStorage.selectedTimezone = e.target.value;
+})
+
 
