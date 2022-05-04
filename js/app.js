@@ -1,19 +1,8 @@
-const alertBanner = document.getElementById('alert');
+//=================== js chart =====================//
 const trafficCanvas = document.getElementById('traffic-chart');
 const dailyCanvas = document.getElementById("daily-chart");
 const mobileCanvas = document.getElementById("mobile-chart");
-const user = document.getElementById("userField");
-const searchResults = document.getElementById("search-results");
-const message = document.getElementById("messageField");
-const send = document.getElementById("send");
-const notificationIcon = document.getElementById("bell");
-const notificationList = document.getElementById("bell-list");
 const trafficInterval = document.querySelector(".traffic-nav");
-const emailNotifications = document.getElementById("email-notifications");
-const emailNotificationsOn = document.getElementById("email-notifications-on");
-const emailNotificationsOff = document.getElementById("email-notifications-off");
-const publicProfile = document.getElementById("public-profile");
-const timezone = document.getElementById("timezone");
 
 
 // js chart data
@@ -146,97 +135,6 @@ let mobileChart = new Chart(mobileCanvas, {
     data: mobileData,
     options: mobileOptions
 });
-    
-// notification data
-const notificationMessages = [ 
-    'Dan Oliver requested access to your page',
-    'Dawn Wood sent you a message',
-    'Dale Byrd shared his page with you',
-    'Your password expires in 6 days',
-    'Dale Byrd posted on your page',
-    'Today is Dan Oliver\'s birthday'
-];
-
-// user info
-const userInfo = [
-    {
-        fullname: 'Victoria Chambers',
-        email: 'victoria.chambers80@example.com'
-    },
-    {
-        fullname: 'Dale Byrd',
-        email: 'dale.byrd52@example.com'
-    },
-    {
-        fullname: 'Dawn Wood',
-        email: 'dawn.wood16@example.com'
-    },
-    {
-        fullname: 'Dan Oliver',
-        email: 'dan.oliver82@example.com'
-    }
-]
-
-// disable notification alert
-notificationIcon.addEventListener('click', (e) => {
-    const element = e.target.firstElementChild;
-    if (element.className !== 'invisible') {
-        makeInvisible(element);
-    }
-
-    const listItems = notificationList.childNodes;
-    for(let i = 0; i < listItems.length; i++) {
-        let listItem = listItems[i];
-        if (listItem.className === 'invisible') {
-            makeVisible(listItem);
-        }    
-    }
-});
-
-// disable notification list item
-notificationList.addEventListener('click', event => {
-    makeInvisible(event.target);
-});
-
-// make element invisible
-function makeInvisible(element) {
-    return element.classList.add('invisible');
-}
-
-// make element invisible element visible
-function makeVisible(element) {
-    return element.classList.remove('invisible');
-}
-
-// unordered list function
-function createListElements (listElement, listObjects, elementClass="") {
-    let lis = '';
-    for (let i = 0; i < listObjects.length; i++){
-        lis += `<li class="${elementClass}">${listObjects[i]}</li>`;
-    }
-    return listElement.innerHTML = lis;
-}
-
-
-// call unordered list function to create notifications
-createListElements(notificationList, notificationMessages, "invisible");
-
-// create html for the banner
-alertBanner.innerHTML = 
-    `
-        <div class="alert-banner flex">
-            <p><strong>Alert:</strong> You have <strong>6</strong> overdue tasks to complete</p>
-            <p class="alert-banner-close">x</p>
-        </div>
-    `
-;
-
-alertBanner.addEventListener('click', e => {
-    const element = e.target;
-    if (element.classList.contains("alert-banner-close")) {
-        alertBanner.style.display = "none";
-    }
-});
 
 // traffic interval selection
 trafficInterval.addEventListener('click', e => {
@@ -266,6 +164,178 @@ trafficInterval.addEventListener('click', e => {
         trafficChart.update();
     }
 })
+
+//================== local storage ====================//
+
+// save button
+const saveSettings = document.getElementById("save");
+
+// reset settings button
+const resetSettings = document.getElementById("cancel");
+
+// data object
+let webAppStorage;
+
+if (localStorage.getItem('data')) {
+    data = localStorage.getItem('data');
+    webAppStorage = JSON.parse(data);
+} else {
+    // default settings storage object
+    webAppStorage = {
+        emailNotificationsIsOn : false,
+        publicProfileIsOn: false,
+        selectedTimezone : 'Select Timezone',
+        notificationsAvailable : true,
+        notificationMessages : [
+            {
+                message: 'Dan Oliver requested access to your page',
+                notClicked: true,
+            },
+            {
+                message: 'Dawn Wood sent you a message',
+                notClicked: true,
+            },
+            {
+                message: 'Dale Byrd shared his page with you',
+                notClicked: true,
+            },
+            {
+                message: 'Your password expires in 6 days',
+                notClicked: true,
+            },
+            {
+                message: 'Dale Byrd posted on your page',
+                notClicked: true,
+            },
+            {
+                message: 'Today is Dan Oliver\'s birthday',
+                notClicked: true,
+            },
+        ]
+    }
+}
+
+
+saveSettings.addEventListener('click', e => {
+    localStorage.setItem('data', JSON.stringify(webAppStorage));
+});
+
+resetSettings.addEventListener('click', () => {
+    localStorage.clear();
+})
+
+
+//================== alert banner ======================//
+
+const alertBanner = document.getElementById('alert');
+
+// create html for the banner
+alertBanner.innerHTML = 
+    `
+        <div class="alert-banner flex">
+            <p><strong>Alert:</strong> You have <strong>6</strong> overdue tasks to complete</p>
+            <p class="alert-banner-close">x</p>
+        </div>
+    `
+;
+
+alertBanner.addEventListener('click', e => {
+    const element = e.target;
+    if (element.classList.contains("alert-banner-close")) {
+        alertBanner.style.display = "none";
+    }
+});
+
+//====================== notifications ========================//
+
+const notificationIcon = document.getElementById("bell");
+const notificationList = document.getElementById("bell-list");
+
+// import settings
+if (!webAppStorage.notificationsAvailable) {
+    makeInvisible(notificationIcon.firstElementChild);
+}
+
+// create notification message texts
+notificationMessageText = notifications => {
+    let newNotifications = [];
+    for (let i = 0; i < notifications.length; i++) {
+        if (notifications[i].notClicked)
+        newNotifications.push(notifications[i].message);
+    }
+    if (newNotifications.length === 0) {
+        newNotifications.push("No new notifications");
+    }
+    return newNotifications;
+};
+
+// make element invisible
+function makeInvisible(element) {
+    return element.classList.add('invisible');
+}
+
+// make element invisible element visible
+function makeVisible(element) {
+    return element.classList.remove('invisible');
+}
+
+
+// disable notification list item
+notificationList.addEventListener('click', event => {
+    let availableNotifications = webAppStorage.notificationMessages;
+    for (let i = 0; i < availableNotifications.length; i++) {
+        if (availableNotifications[i].message === event.target.textContent) {
+            availableNotifications[i].notClicked = false;
+            event.target.remove();
+        }
+        if (event.target.textContent === "No new notifications") {
+            event.target.remove();
+        }
+    }
+});
+
+// disable notification alert
+notificationIcon.addEventListener('click', (e) => {
+    createListElements(notificationList, notificationMessageText(webAppStorage.notificationMessages), "invisible");
+    const element = e.target.firstElementChild;
+    if (element.className !== 'invisible') {
+        makeInvisible(element);
+        webAppStorage.notificationsAvailable = false;
+    }
+
+    const listItems = notificationList.childNodes;
+    for(let i = 0; i < listItems.length; i++) {
+        let listItem = listItems[i];
+        if (listItem.className === 'invisible') {
+            makeVisible(listItem);
+        }    
+    }
+});
+
+//======================= user messages =======================//
+
+const user = document.getElementById("userField");
+const searchResults = document.getElementById("search-results");
+const message = document.getElementById("messageField");
+const send = document.getElementById("send");
+const userInfo = [
+    {
+        fullname: 'Victoria Chambers',
+        email: 'victoria.chambers80@example.com',
+    },
+    {
+        fullname: 'Dale Byrd',
+        email: 'dale.byrd52@example.com',
+    },
+    {
+        fullname: 'Dawn Wood',
+        email: 'dawn.wood16@example.com',
+    },
+    {
+        fullname: 'Dan Oliver',
+        email: 'dan.oliver82@example.com',
+    },
+]
 
 // user search autocomplete
 user.addEventListener('input', (e) => {
@@ -305,7 +375,34 @@ send.addEventListener('click', () => {
     }
 });
 
-//
+
+
+
+// unordered list function
+function createListElements (listElement, textObjects, elementClass="") {
+    let lis = '';
+    for (let i = 0; i < textObjects.length; i++){
+        lis += `<li class="${elementClass}">${textObjects[i]}</li>`;
+    }
+    return listElement.innerHTML = lis;
+}
+
+
+
+
+//======================== Settings ======================//
+const emailNotifications = document.getElementById("email-notifications");
+const emailNotificationsOn = document.getElementById("email-notifications-on");
+const emailNotificationsOff = document.getElementById("email-notifications-off");
+const publicProfile = document.getElementById("public-profile");
+const timezone = document.getElementById("timezone");
+
+// settings import
+emailNotifications.checked = webAppStorage.emailNotificationsIsOn;
+publicProfile.checked = webAppStorage.publicProfileIsOn;
+timezone.value = webAppStorage.selectedTimezone;
+
+// adds and removes 'On' font styling to toggle switch element based 'on' or 'off' status
 function toggleSwitch(event) {
     let toggleOn = event.srcElement.checked;
     let element = event.target.nextElementSibling.nextElementSibling.firstElementChild;
@@ -320,29 +417,27 @@ function toggleSwitch(event) {
     }
 }
 
+// sets local storage variable and executes styling function
 function toggleSwitchEmail(event) {
     webAppStorage.emailNotificationsIsOn = event.srcElement.checked;
     toggleSwitch(event);
 }
 
+// sets local storage variable and executes styling function
 function toggleSwitchProfile(event) {
     webAppStorage.publicProfileIsOn = event.srcElement.checked;
     toggleSwitch(event);
 }
 
-let webAppStorage = {
-    emailNotificationsIsOn : false,
-    publicProfileIsOn: false,
-    selectedTimezone : 'Select Timezone',
-}
-
-
-
+// email notifications toggle switch listener
 emailNotifications.addEventListener('click', toggleSwitchEmail);
+
+// set profile to public toggle switch listener
 publicProfile.addEventListener('click', toggleSwitchProfile);
     
+// timezone setting listener
 timezone.addEventListener('click', e => {
-    webAppStorage.selectedTimezone = e.target.value;
+    webAppStorage.selectedTimezone = e.target.value; //stores in local storage variable
 })
 
 
