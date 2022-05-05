@@ -20,6 +20,9 @@
 .invisible {
     display: none;
 }
+h1 {
+    margin-left: 1rem;
+}
 #bell {
     margin-right: 2rem;
 }
@@ -82,10 +85,7 @@ nav {
 .headline {
     padding: 10px 5vw;
 }
-.traffic-nav-link {
-    margin: .5rem;
-    padding: 1rem;
-}
+
 .mobile h3,
 .daily h3 {
     margin-bottom: 20px;

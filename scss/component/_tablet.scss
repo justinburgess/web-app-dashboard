@@ -47,7 +47,10 @@
         .traffic-nav {
             justify-content: flex-end;
         }
-
+        .traffic-nav-link {
+            margin: .5rem;
+            padding: 1rem;
+        }
         .mobile {
             border-left: solid 1px $borderColor;
         }

@@ -1150,6 +1150,10 @@ form,
   display: none;
 }
 
+h1 {
+  margin-left: 1rem;
+}
+
 #bell {
   margin-right: 2rem;
 }
@@ -1220,11 +1224,6 @@ nav {
 
 .headline {
   padding: 10px 5vw;
-}
-
-.traffic-nav-link {
-  margin: 0.5rem;
-  padding: 1rem;
 }
 
 .mobile h3,
@@ -1619,6 +1618,10 @@ button {
   }
   main .traffic-nav {
     justify-content: flex-end;
+  }
+  main .traffic-nav-link {
+    margin: 0.5rem;
+    padding: 1rem;
   }
   main .mobile {
     border-left: solid 1px rgba(65, 63, 63, 0.301);

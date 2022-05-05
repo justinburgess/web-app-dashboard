@@ -167,12 +167,6 @@ trafficInterval.addEventListener('click', e => {
 
 //================== local storage ====================//
 
-// save button
-const saveSettings = document.getElementById("save");
-
-// reset settings button
-const resetSettings = document.getElementById("cancel");
-
 // data object
 let webAppStorage;
 
@@ -214,15 +208,6 @@ if (localStorage.getItem('data')) {
         ]
     }
 }
-
-
-saveSettings.addEventListener('click', e => {
-    localStorage.setItem('data', JSON.stringify(webAppStorage));
-});
-
-resetSettings.addEventListener('click', () => {
-    localStorage.clear();
-})
 
 
 //================== alert banner ======================//
@@ -463,5 +448,35 @@ timezone.addEventListener('click', e => {
     webAppStorage.selectedTimezone = e.target.value; //stores in local storage variable
 })
 
+//================== save and reset data ====================//
 
+// save button
+const saveSettings = document.getElementById("save");
 
+// reset settings button
+const resetSettings = document.getElementById("cancel");
+
+function resetToggle() {
+
+}
+
+saveSettings.addEventListener('click', e => {
+    localStorage.setItem('data', JSON.stringify(webAppStorage));
+});
+
+resetSettings.addEventListener('click', () => {
+    // clear local storage
+    localStorage.clear();
+
+    // reset email notifications to default
+    emailNotifications.checked = false;
+    toggleStyling(emailNotifications, 'remove');
+
+    // reset public profile toggle to default
+    publicProfile.checked = false;
+    toggleStyling(publicProfile, 'remove');
+
+    // reset timezone dropdown
+    const zone = document.getElementById('timezone');
+    zone.value = 'Select Timezone';
+});
